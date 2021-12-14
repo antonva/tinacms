@@ -15085,6 +15085,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esbuild-jest", "virtual:5c3d4447ac56a3ba38c9984e224bd2e974c6a5cd6bfe781b43f3cbacb55b40fafda8802904c4a31edb2fea4f1faa0df4451d209da701a0aa20cbbda747c4bdfe#npm:0.5.0"],
             ["estree-walker", "npm:3.0.0"],
             ["fast-glob", "npm:3.2.7"],
+            ["faunadb", "npm:4.4.1"],
             ["flat", "npm:5.0.2"],
             ["fs-extra", "npm:9.1.0"],
             ["graphql", "npm:15.5.1"],
@@ -26610,6 +26611,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["widest-line", "npm:3.1.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:5.1.2", {
+          "packageLocation": "./.yarn/cache/boxen-npm-5.1.2-364ee34f2f-77582b2494.zip/node_modules/boxen/",
+          "packageDependencies": [
+            ["boxen", "npm:5.1.2"],
+            ["ansi-align", "npm:3.0.0"],
+            ["camelcase", "npm:6.2.0"],
+            ["chalk", "npm:4.1.1"],
+            ["cli-boxes", "npm:2.2.1"],
+            ["string-width", "npm:4.2.3"],
+            ["type-fest", "npm:0.20.2"],
+            ["widest-line", "npm:3.1.0"],
+            ["wrap-ansi", "npm:7.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["brace-expansion", [
@@ -32427,6 +32443,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["faunadb", [
+        ["npm:4.4.1", {
+          "packageLocation": "./.yarn/unplugged/faunadb-npm-4.4.1-aa2fc98644/node_modules/faunadb/",
+          "packageDependencies": [
+            ["faunadb", "npm:4.4.1"],
+            ["abort-controller", "npm:3.0.0"],
+            ["base64-js", "npm:1.5.1"],
+            ["boxen", "npm:5.1.2"],
+            ["btoa-lite", "npm:1.0.0"],
+            ["chalk", "npm:4.1.1"],
+            ["cross-fetch", "npm:3.1.4"],
+            ["dotenv", "npm:8.6.0"],
+            ["fn-annotate", "npm:1.2.0"],
+            ["object-assign", "npm:4.1.1"],
+            ["util-deprecate", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["faye-websocket", [
         ["npm:0.11.4", {
           "packageLocation": "./.yarn/cache/faye-websocket-npm-0.11.4-1f0de76de9-bf3a03e821.zip/node_modules/faye-websocket/",
@@ -32882,6 +32917,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["flush-write-stream", "npm:1.1.1"],
             ["inherits", "npm:2.0.4"],
             ["readable-stream", "npm:2.3.7"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["fn-annotate", [
+        ["npm:1.2.0", {
+          "packageLocation": "./.yarn/cache/fn-annotate-npm-1.2.0-c34b62b1bf-3dc173283b.zip/node_modules/fn-annotate/",
+          "packageDependencies": [
+            ["fn-annotate", "npm:1.2.0"]
           ],
           "linkType": "HARD",
         }]

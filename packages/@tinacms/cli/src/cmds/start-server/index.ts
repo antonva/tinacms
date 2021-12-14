@@ -12,6 +12,9 @@ limitations under the License.
 */
 
 import {
+  MemoryStore,
+  FaunaBridge,
+  FaunaStore,
   FilesystemBridge,
   FilesystemStore,
   LevelStore,
@@ -95,10 +98,17 @@ export async function startServer(
     process.env.NODE_ENV = dev ? 'development' : 'production'
   }
 
-  const bridge = new FilesystemBridge(rootPath)
-  const store = experimentalData
-    ? new LevelStore(rootPath)
-    : new FilesystemStore({ rootPath })
+  //const bridge = new FilesystemBridge(rootPath)
+  //const store = experimentalData
+  //  ? new LevelStore(rootPath)
+  //  : new FilesystemStore({ rootPath })
+  const bridge = new FaunaBridge({
+    accessToken: process.env.FAUNA_KEY,
+    domain: process.env.FAUNA_DOMAIN,
+    collection: process.env.FAUNA_COLLECTION,
+    rootPath: rootPath,
+  })
+  const store = new MemoryStore(rootPath)
   const shouldBuild = bridge.supportsBuilding()
   const database = await createDatabase({ store, bridge })
 
