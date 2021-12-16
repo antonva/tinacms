@@ -104,10 +104,12 @@ export class FaunaBridge implements Bridge {
 
   public async glob(pattern: string) {
     const results = await this.readDir(pattern)
+    console.log('glob', results)
     return results
   }
 
   public async get(filepath: string) {
+    console.log('get', filepath)
     try {
       let page: string = await this.faunaClient.query(
         fq.Select(
@@ -147,6 +149,7 @@ export class FaunaBridge implements Bridge {
   }
 
   public async put(filepath: string, data: string) {
+    const path = filepath.split('/').slice(0, -1).join('/')
     await this.faunaClient.query(
       fq.Let(
         {
@@ -156,12 +159,14 @@ export class FaunaBridge implements Bridge {
           fq.IsEmpty(fq.Var('match')),
           fq.Create(this.collection, {
             data: {
+              path: path,
               filename: filepath,
               page: data,
             },
           }),
           fq.Update(fq.Select('ref', fq.Get(fq.Var('match'))), {
             data: {
+              path: path,
               filename: filepath,
               page: data,
             },

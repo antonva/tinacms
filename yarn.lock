@@ -6557,6 +6557,7 @@ __metadata:
     "@types/yup": ^0.29.7
     encoding-down: ^7.1.0
     fast-glob: ^3.2.5
+    faunadb: ^4.4.1
     fs-extra: ^9.0.1
     graphql: ^15.3.0
     gray-matter: ^4.0.2
@@ -6610,7 +6611,6 @@ __metadata:
     esbuild-jest: ^0.5.0
     estree-walker: ^3.0.0
     fast-glob: ^3.2.5
-    faunadb: ^4.4.1
     flat: ^5.0.2
     fs-extra: ^9.0.1
     graphql: ^15.3.0

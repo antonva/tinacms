@@ -14,7 +14,6 @@ limitations under the License.
 import {
   MemoryStore,
   FaunaBridge,
-  FaunaStore,
   FilesystemBridge,
   FilesystemStore,
   LevelStore,
