@@ -10,7 +10,7 @@ data: {
 
 Assumptions:
 - An operational Fauna database with an access key
-- A collection in the Fauna database that has an index named 'page_by_filename'
+- A collection in the Fauna database that has an index named 'pageByFileName'
   with 'data.filename' as it's only term
 - Does not use or care about rootPath, this might change in the future
 
@@ -112,7 +112,7 @@ export class FaunaBridge implements Bridge {
       let page: string = await this.faunaClient.query(
         fq.Select(
           ['data', 'page'],
-          fq.Get(fq.Match(fq.Index('page_by_filename'), filepath))
+          fq.Get(fq.Match(fq.Index('pageByFileName'), filepath))
         )
       )
       if (page !== undefined) {
@@ -150,7 +150,7 @@ export class FaunaBridge implements Bridge {
     await this.faunaClient.query(
       fq.Let(
         {
-          match: fq.Match(fq.Index('page_by_filename'), filepath),
+          match: fq.Match(fq.Index('pageByFileName'), filepath),
         },
         fq.If(
           fq.IsEmpty(fq.Var('match')),
