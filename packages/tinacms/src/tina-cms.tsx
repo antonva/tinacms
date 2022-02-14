@@ -280,6 +280,8 @@ type APIProviderProps =
        *
        */
       client: never
+      isFaunaClient?: boolean
+      faunaContentUrl?: string
     }
 
 interface BaseProviderProps {
@@ -343,13 +345,16 @@ export const TinaCMSProvider2 = ({
     )
   }
 
-  const { branch, clientId, isLocalClient } = apiURL
-    ? parseURL(apiURL)
-    : {
-        branch: props.branch,
-        clientId: props.clientId,
-        isLocalClient: props.isLocalClient,
-      }
+  const { branch, clientId, isLocalClient, isFaunaClient, faunaContentUrl } =
+    props.apiURL
+      ? parseURL(props.apiURL)
+      : {
+          branch: props.branch,
+          clientId: props.clientId,
+          isLocalClient: props.isLocalClient,
+          isFaunaClient: false,
+          faunaContentUrl: null,
+        }
 
   // schema is now required as the Global Nav and CMS utilize it
   if (!schema) {
@@ -365,6 +370,8 @@ export const TinaCMSProvider2 = ({
         clientId={clientId}
         tinaioConfig={props.tinaioConfig}
         isLocalClient={isLocalClient}
+        faunaContentUrl={faunaContentUrl}
+        isFaunaClient={isFaunaClient}
         cmsCallback={props.cmsCallback}
         mediaStore={props.mediaStore}
         schema={schema}

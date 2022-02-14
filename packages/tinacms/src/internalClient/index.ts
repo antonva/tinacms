@@ -459,3 +459,25 @@ export class LocalClient extends Client {
     return true
   }
 }
+
+export class FaunaClient extends Client {
+  constructor(props?: { customContentApiUrl?: string }) {
+    const clientProps = {
+      clientId: '',
+      branch: '',
+      customContentApiUrl:
+        props && props.customContentApiUrl
+          ? props.customContentApiUrl
+          : DEFAULT_LOCAL_TINA_GQL_SERVER_URL,
+    }
+    super(clientProps)
+  }
+
+  async isAuthorized(): Promise<boolean> {
+    return true
+  }
+
+  async isAuthenticated(): Promise<boolean> {
+    return true
+  }
+}

@@ -14,9 +14,17 @@ limitations under the License.
 import UrlPattern from 'url-pattern'
 export const TINA_HOST = 'content.tinajs.io'
 
-export const parseURL = (url: string): { branch; isLocalClient; clientId } => {
+export const parseURL = (
+  url: string
+): { branch; isLocalClient; clientId; isFaunaClient; faunaContentUrl } => {
   if (url.includes('localhost')) {
-    return { branch: null, isLocalClient: true, clientId: null }
+    return {
+      branch: null,
+      isLocalClient: true,
+      clientId: null,
+      isFaunaClient: false,
+      faunaContentUrl: null,
+    }
   }
 
   const params = new URL(url)
@@ -27,6 +35,16 @@ export const parseURL = (url: string): { branch; isLocalClient; clientId } => {
   const branch = result?._
   const clientId = result?.clientId
 
+  if (params.host !== TINA_HOST) {
+    return {
+      branch: null,
+      isLocalClient: false,
+      clientId: null,
+      isFaunaClient: true,
+      faunaContentUrl: url,
+    }
+  }
+
   if (!branch || !clientId) {
     throw new Error(
       `Invalid URL format provided. Expected: https://content.tinajs.io/content/<ClientID>/github/<Branch> but but received ${url}`
@@ -35,15 +53,11 @@ export const parseURL = (url: string): { branch; isLocalClient; clientId } => {
 
   // TODO if !result || !result.clientId || !result.branch, throw an error
 
-  if (params.host !== TINA_HOST) {
-    throw new Error(
-      `The only supported hosts are ${TINA_HOST} or localhost, but received ${params.host}.`
-    )
-  }
-
   return {
     branch,
     clientId,
     isLocalClient: false,
+    isFaunaClient: false,
+    faunaContentUrl: null,
   }
 }

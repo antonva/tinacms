@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Client, LocalClient } from '../internalClient'
+import { Client, LocalClient, FaunaClient } from '../internalClient'
 import type { TinaIOConfig } from '../internalClient'
 import * as yup from 'yup'
 import { TinaCloudSchema } from '@tinacms/schema-tools'
@@ -19,6 +19,8 @@ import { TinaCloudSchema } from '@tinacms/schema-tools'
 export interface CreateClientProps {
   clientId?: string
   isLocalClient?: boolean
+  isFaunaClient?: boolean
+  faunaContentUrl?: string
   tinaioConfig?: TinaIOConfig
   owner?: string
   repo?: string
@@ -28,10 +30,17 @@ export interface CreateClientProps {
 export const createClient = ({
   clientId,
   isLocalClient = true,
+  isFaunaClient = false,
+  faunaContentUrl,
   branch,
   tinaioConfig,
   schema,
 }: CreateClientProps) => {
+  if (isFaunaClient) {
+    return new FaunaClient({
+      customContentApiUrl: faunaContentUrl || '',
+    })
+  }
   return isLocalClient
     ? new LocalClient({ schema })
     : new Client({
