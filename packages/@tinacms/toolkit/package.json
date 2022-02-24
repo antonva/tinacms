@@ -13,11 +13,11 @@
     "dist"
   ],
   "bugs": {
-    "url": "https://github.com/tinacms/tinacms/issues"
+    "url": "https://github.com/getlocal-travel/tinacms/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tinacms/tinacms.git",
+    "url": "https://github.com/getlocal-travel/tinacms.git",
     "directory": "packages/tinacms"
   },
   "license": "Apache-2.0",

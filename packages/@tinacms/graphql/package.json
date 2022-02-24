@@ -89,11 +89,8 @@
     "ws": "^7.3.1",
     "yup": "^0.32.9"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
   "repository": {
-    "url": "https://github.com/tinacms/tinacms.git",
+    "url": "https://github.com/getlocal-travel/tinacms.git",
     "directory": "packages/tina-graphql"
   },
   "devDependencies": {

@@ -23,11 +23,8 @@
     "build": "echo \"Run `yarn build` from the root of the repository instead\"",
     "test-run-bin": "yarn create-tina-app"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
   "repository": {
-    "url": "https://github.com/tinacms/tinacms.git",
+    "url": "https://github.com/getlocal-travel/tinacms.git",
     "directory": "packages/create-tina-app"
   },
   "devDependencies": {
