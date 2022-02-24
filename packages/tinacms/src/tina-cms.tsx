@@ -16,7 +16,7 @@ import type { TinaClient } from './client'
 import { TinaCloudMediaStoreClass, TinaCloudProvider } from './auth'
 import { useGraphqlForms } from './hooks/use-graphql-forms'
 
-import { LocalClient } from './internalClient/index'
+import { FaunaClient, LocalClient } from './internalClient/index'
 import type { TinaCMS } from '@tinacms/toolkit'
 import type { TinaCloudSchema } from '@tinacms/schema-tools'
 import { TinaDataContext } from '@tinacms/sharedctx'
@@ -655,6 +655,37 @@ export const getStaticPropsForTina = async ({
 
 function is_server() {
   return !(typeof window != 'undefined' && window.document)
+}
+
+/**
+ * A convenience function which makes a GraphQL request
+ * to a remote GraphQL server.
+ */
+export const faunaRequest = async ({
+  query,
+  variables,
+  faunaUrl,
+}: {
+  /** A GraphQL request string */
+  query: string
+  /** GraphQL variables */
+  variables?: object
+  /** Our graphql server hooked up to FaunaDB */
+  faunaUrl: string
+}) => {
+  const client = new FaunaClient({ customContentApiUrl: faunaUrl })
+  if (!is_server()) {
+    // If we are running this in the browser (for example a useEffect) we should display a warning
+    console.warn(`Whoops! Looks like you are using \`staticRequest\` in the browser to fetch data.
+
+The local server is not available outside of \`getStaticProps\` or \`getStaticPaths\` functions.
+This function should only be called on the server at build time.
+
+This will work when developing locally but NOT when deployed to production.
+`)
+  }
+
+  return client.request(query, { variables })
 }
 
 /**
