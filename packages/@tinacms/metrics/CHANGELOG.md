@@ -1,5 +1,11 @@
 # @tinacms/metrics
 
+## 0.1.0
+
+### Minor Changes
+
+- dcd843fbd: Bump for next getlocal iteration
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @tinacms/sharedctx
 
+## 0.2.0
+
+### Minor Changes
+
+- dcd843fbd: Bump for next getlocal iteration
+
 ## 0.1.1
 
 ### Patch Changes

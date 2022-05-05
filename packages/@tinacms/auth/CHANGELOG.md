@@ -1,5 +1,11 @@
 # @tinacms/auth
 
+## 0.51.0
+
+### Minor Changes
+
+- dcd843fbd: Bump for next getlocal iteration
+
 ## 0.50.2
 
 ### Patch Changes
