@@ -34,9 +34,9 @@ In order to use the Fauna bridge with the Memory store, edit
 ``
 */
 
-import { Bridge } from '.'
 import faunadb, { Client as FaunadbClient } from 'faunadb'
 import { GraphQLError } from 'graphql'
+import type { Bridge } from './index'
 
 const fq = faunadb.query
 
@@ -98,8 +98,44 @@ export class FaunaBridge implements Bridge {
     }
     return []
   }
+
   public supportsBuilding() {
     return true
+  }
+
+  public async delete(filepath: string) {
+    console.log('delete', filepath)
+    try {
+      let page: string = await this.faunaClient.query(
+        fq.Delete(
+          fq.Select(
+            ['ref'],
+            fq.Get(fq.Match(fq.Index('pageByFileName'), filepath))
+          )
+        )
+      )
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new GraphQLError(
+          `Unauthorized request to Fauna Database: please ensure your access token is valid.`,
+          null,
+          null,
+          null,
+          null,
+          e,
+          { status: e.message }
+        )
+      }
+      throw new GraphQLError(
+        `Unknown error request to Fauna Database: please ensure your access token is valid.`,
+        null,
+        null,
+        null,
+        null,
+        null,
+        { status: '' }
+      )
+    }
   }
 
   public async glob(pattern: string) {
