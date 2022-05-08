@@ -461,8 +461,12 @@ export class LocalClient extends Client {
 }
 
 export class FaunaClient extends Client {
-  constructor(props?: { customContentApiUrl?: string }) {
+  constructor(props?: {
+    customContentApiUrl?: string
+    schema?: TinaCloudSchema<false>
+  }) {
     const clientProps = {
+      ...props,
       clientId: '',
       branch: '',
       customContentApiUrl:
