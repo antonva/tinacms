@@ -39,6 +39,7 @@ export const createClient = ({
   if (isFaunaClient) {
     return new FaunaClient({
       customContentApiUrl: faunaContentUrl || '',
+      schema: schema,
     })
   }
   return isLocalClient

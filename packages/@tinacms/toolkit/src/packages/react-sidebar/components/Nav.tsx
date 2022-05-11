@@ -23,7 +23,10 @@ import { VscNewFile } from 'react-icons/vsc'
 import { Menu, Transition } from '@headlessui/react'
 import { updateBodyDisplacement } from './Sidebar'
 import { FormModal } from '../../react-forms'
-import { useEditState } from '@tinacms/sharedctx'
+// We are running into issues with the edit state context in the sidebar,
+// disabling this for now as we do not need the logout feature in Tina from the
+// portal anyhow. [11-05-2022]
+//import { useEditState } from '@tinacms/sharedctx'
 import type { ScreenPlugin } from '../../react-screens'
 import { LoadingDots } from '../../form-builder'
 
@@ -57,7 +60,10 @@ export const Nav = ({
   RenderNavCollection,
   ...props
 }: NavProps) => {
-  const { setEdit } = useEditState()
+  // We are running into issues with the edit state context in the sidebar,
+  // disabling this for now as we do not need the logout feature in Tina from the
+  // portal anyhow. [11-05-2022]
+  //const { setEdit } = useEditState()
 
   return (
     <div
@@ -65,6 +71,7 @@ export const Nav = ({
       style={{ maxWidth: sidebarWidth + 'px' }}
       {...props}
     >
+      {/**
       <div className="border-b border-gray-200">
         <Menu as="div" className="relative block">
           {({ open }) => (
@@ -114,7 +121,10 @@ export const Nav = ({
                               sidebarWidth: null,
                               resizingSidebar: false,
                             })
-                            setEdit(false)
+                            // We are running into issues with the edit state context in the sidebar,
+                            // disabling this for now as we do not need the logout feature in Tina from the
+                            // portal anyhow. [11-05-2022]
+                            //setEdit(false)
                           }}
                         >
                           <BiExit className="w-6 h-auto mr-2 text-blue-400" />{' '}
@@ -129,6 +139,7 @@ export const Nav = ({
           )}
         </Menu>
       </div>
+      */}
       {children}
       <div className="px-6 flex-1 overflow-auto">
         {showCollections && (
