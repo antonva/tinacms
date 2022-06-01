@@ -4,34 +4,13 @@
 
 ### Patch Changes
 
-<<<<<<< HEAD
 - Updated dependencies [2cc206b1a]
 - Updated dependencies [8998df207]
   - tinacms@0.68.6
-=======
-- Updated dependencies [dcd843fbd]
-  - tinacms@0.69.0
->>>>>>> aa3667d65 (Version)
 
 ## null
 
 ### Patch Changes
-
-<<<<<<< HEAD
-- Updated dependencies [646cad8da]
-- Updated dependencies [f857616f6]
-- Updated dependencies [6e2ed31a2]
-  - tinacms@0.68.5
-
-## null
-
-### Patch Changes
-
-- Updated dependencies [7372f90ca]
-  - tinacms@0.68.4
-=======
-- tinacms@0.68.4
->>>>>>> aa3667d65 (Version)
 
 ## null
 

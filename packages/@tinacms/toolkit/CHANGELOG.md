@@ -1,6 +1,5 @@
 # Change Log
 
-<<<<<<< HEAD
 ## 0.56.29
 
 ### Patch Changes
@@ -16,18 +15,6 @@
 - a196198bd: Add ability to disable sidebar nav
 - 57a4a3789: Persist sidebar state across browser reload
 - ba1499029: Displays a helpful message in branch switcher when running locally
-=======
-## 0.57.0
-
-### Minor Changes
-
-- dcd843fbd: Bump for next getlocal iteration
-
-### Patch Changes
-
-- Updated dependencies [dcd843fbd]
-  - @tinacms/sharedctx@0.2.0
->>>>>>> aa3667d65 (Version)
 
 ## 0.56.27
 
