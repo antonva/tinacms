@@ -1,6 +1,5 @@
 # tina-graphql
 
-<<<<<<< HEAD
 ## 0.60.3
 
 ### Patch Changes
@@ -23,18 +22,6 @@
 ### Patch Changes
 
 - 3b11ff6ad: Add optional indexing status callback to Database
-=======
-## 0.61.0
-
-### Minor Changes
-
-- dcd843fbd: Bump for next getlocal iteration
-
-### Patch Changes
-
-- Updated dependencies [dcd843fbd]
-  - @tinacms/datalayer@0.2.0
->>>>>>> aa3667d65 (Version)
 
 ## 0.60.0
 
