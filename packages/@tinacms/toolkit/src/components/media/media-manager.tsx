@@ -100,9 +100,9 @@ export function MediaPicker({
   let directoryWithPath: string | undefined = undefined
   if (cms.mediabasepath) {
     directoryWithPath = cms.mediabasepath
-  }
-  if (directoryWithPath && props.directory) {
-    directoryWithPath += props.directory
+    if (props.directory) {
+      directoryWithPath += props.directory
+    }
   } else {
     directoryWithPath = props.directory
   }
