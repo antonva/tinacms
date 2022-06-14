@@ -1,5 +1,11 @@
 # tinacms
 
+## 0.68.8
+
+### Patch Changes
+
+- Export types
+
 ## 0.68.7
 
 ### Patch Changes

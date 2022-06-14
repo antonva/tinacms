@@ -1,5 +1,11 @@
 # tinacms-cli
 
+## 0.60.20
+
+### Patch Changes
+
+- Export types
+
 ## 0.60.19
 
 ### Patch Changes

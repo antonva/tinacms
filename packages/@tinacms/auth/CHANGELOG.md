@@ -1,5 +1,11 @@
 # @tinacms/auth
 
+## 0.51.1
+
+### Patch Changes
+
+- Force patch update
+
 ## 0.51.0
 
 ### Minor Changes
