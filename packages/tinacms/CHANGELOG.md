@@ -1,5 +1,11 @@
 # tinacms
 
+## 0.68.7
+
+### Patch Changes
+
+- e06dbb3ca: Adds `waitForDB` cmd to cli
+
 ## 0.68.6
 
 ### Patch Changes

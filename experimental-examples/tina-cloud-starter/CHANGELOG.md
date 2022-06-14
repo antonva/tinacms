@@ -1,5 +1,13 @@
 # @tinacms/starter
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [e06dbb3ca]
+  - tinacms@0.68.7
+  - next-tinacms-cloudinary@3.5.23
+
 ## 0.1.3
 
 ### Patch Changes
