@@ -169,6 +169,9 @@ export const TinaCloudProvider = (
 
   const setupMedia = async () => {
     if (props.mediaStore) {
+      if (props.mediaBasePath) {
+        cms.mediabasepath = props.mediaBasePath
+      }
       // Check to see if the media was store was passed in?
       if (props.mediaStore.prototype?.persist) {
         // @ts-ignore
@@ -179,9 +182,6 @@ export const TinaCloudProvider = (
         // @ts-ignore
         const MediaClass = await props.mediaStore()
         cms.media.store = new MediaClass(cms.api.tina)
-        if (props.mediaBasePath) {
-          cms.mediabasepath = props.mediaBasePath
-        }
       }
     }
   }
