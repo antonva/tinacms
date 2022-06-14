@@ -41,6 +41,7 @@ import { Breadcrumb } from './breadcrumb'
 import { LoadingDots } from '../../packages/form-builder'
 
 export interface MediaRequest {
+  basepath?: string
   directory?: string
   onSelect?(media: Media): void
   close?(): void
@@ -95,8 +96,19 @@ export function MediaPicker({
   })
 
   const [listError, setListError] = useState<MediaListError>(defaultListError)
+
+  let directoryWithPath: string | undefined = undefined
+  if (cms.mediabasepath) {
+    directoryWithPath = cms.mediabasepath
+  }
+  if (directoryWithPath && props.directory) {
+    directoryWithPath += props.directory
+  } else {
+    directoryWithPath = props.directory
+  }
+
   const [directory, setDirectory] = useState<string | undefined>(
-    props.directory
+    directoryWithPath
   )
 
   const [list, setList] = useState<MediaList>({

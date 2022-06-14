@@ -72,6 +72,7 @@ export interface TinaCMSConfig extends CMSConfig {
 }
 
 export class TinaCMS extends CMS {
+  mediabasepath?: string
   sidebar?: SidebarState
   toolbar?: ToolbarState
   _alerts?: Alerts

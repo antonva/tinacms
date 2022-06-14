@@ -49,6 +49,7 @@ export interface TinaCloudAuthWallProps {
   mediaStore?:
     | TinaCloudMediaStoreClass
     | (() => Promise<TinaCloudMediaStoreClass>)
+  mediaBasePath?: string
 }
 
 export const AuthWallInner = ({
@@ -178,6 +179,9 @@ export const TinaCloudProvider = (
         // @ts-ignore
         const MediaClass = await props.mediaStore()
         cms.media.store = new MediaClass(cms.api.tina)
+        if (props.mediaBasePath) {
+          cms.mediabasepath = props.mediaBasePath
+        }
       }
     }
   }

@@ -295,6 +295,8 @@ interface BaseProviderProps {
   mediaStore?:
     | TinaCloudMediaStoreClass
     | (() => Promise<TinaCloudMediaStoreClass>)
+  /** Media store/manager base path */
+  mediaBasePath?: string
   tinaioConfig?: TinaIOConfig
   schema?: TinaCloudSchema<false>
 }
@@ -374,6 +376,7 @@ export const TinaCMSProvider2 = ({
         isFaunaClient={isFaunaClient}
         cmsCallback={props.cmsCallback}
         mediaStore={props.mediaStore}
+        mediaBasePath={props.mediaBasePath}
         schema={schema}
       >
         <style>{styles}</style>
