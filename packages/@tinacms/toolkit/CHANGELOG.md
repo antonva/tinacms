@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.56.31
+
+### Patch Changes
+
+- Make media manager breadcrumb be basepath aware
+
 ## 0.56.30
 
 ### Patch Changes

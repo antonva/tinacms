@@ -1,5 +1,12 @@
 # @tinacms/starter
 
+## 0.1.7
+
+### Patch Changes
+
+- next-tinacms-cloudinary@3.5.25
+- tinacms@0.68.10
+
 ## 0.1.6
 
 ### Patch Changes

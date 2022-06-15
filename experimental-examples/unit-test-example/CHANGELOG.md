@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- tinacms@0.68.10
+
+## null
+
+### Patch Changes
+
 - tinacms@0.68.9
 
 ## null
