@@ -23,10 +23,22 @@ import path from 'path'
 
 interface BreadcrumbProps {
   directory?: string
+  basepath?: string
   setDirectory: (directory: string) => void
 }
 
-export function Breadcrumb({ directory = '', setDirectory }: BreadcrumbProps) {
+export function Breadcrumb({
+  directory = '',
+  basepath,
+  setDirectory,
+}: BreadcrumbProps) {
+  if (basepath) {
+    const basepathSplit = basepath.split('/')
+    let directorySplit = directory.split('/')
+    directory = directorySplit
+      .filter((path, idx) => path !== basepathSplit[idx])
+      .join('/')
+  }
   directory = directory.replace(/^\/|\/$/g, '')
 
   let prevDir = path.dirname(directory)

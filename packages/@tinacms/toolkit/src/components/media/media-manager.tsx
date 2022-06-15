@@ -41,7 +41,6 @@ import { Breadcrumb } from './breadcrumb'
 import { LoadingDots } from '../../packages/form-builder'
 
 export interface MediaRequest {
-  basepath?: string
   directory?: string
   onSelect?(media: Media): void
   close?(): void
@@ -244,7 +243,11 @@ export function MediaPicker({
   return (
     <MediaPickerWrap>
       <div className="flex items-center bg-white border-b border-gray-100 py-3 px-5 shadow-sm flex-shrink-0">
-        <Breadcrumb directory={directory} setDirectory={setDirectory} />
+        <Breadcrumb
+          basepath={cms.mediabasepath}
+          directory={directory}
+          setDirectory={setDirectory}
+        />
         <UploadButton onClick={onClick} uploading={uploading} />
       </div>
       <ul
