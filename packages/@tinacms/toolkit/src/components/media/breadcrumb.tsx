@@ -46,6 +46,10 @@ export function Breadcrumb({
     prevDir = ''
   }
 
+  let rootDir = ''
+  if (basepath) {
+    rootDir = basepath
+  }
   return (
     <BreadcrumbWrapper showArrow={directory !== ''}>
       {directory !== '' && (
@@ -53,7 +57,7 @@ export function Breadcrumb({
           <LeftArrowIcon className="w-8 h-auto" />
         </span>
       )}
-      <button onClick={() => setDirectory('')}>Media</button>
+      <button onClick={() => setDirectory(rootDir)}>Media</button>
       {directory &&
         directory.split('/').map((part, index, parts) => {
           const currentDir = parts.slice(0, index + 1).join('/')
@@ -61,7 +65,12 @@ export function Breadcrumb({
             <button
               key={currentDir}
               onClick={() => {
-                setDirectory(currentDir)
+                let dir = ''
+                if (basepath) {
+                  dir = basepath + '/'
+                }
+                dir += currentDir
+                setDirectory(dir)
               }}
             >
               {part}
