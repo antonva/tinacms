@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.56.32
+
+### Patch Changes
+
+- Modify breadcrumb setDirectory behaviour to accomodate basepath
+
 ## 0.56.31
 
 ### Patch Changes
