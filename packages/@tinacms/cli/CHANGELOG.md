@@ -1,5 +1,14 @@
 # tinacms-cli
 
+## 0.60.21
+
+### Patch Changes
+
+- Add FaunaStore interface
+- Updated dependencies
+  - @tinacms/datalayer@0.2.1
+  - @tinacms/graphql@0.60.5
+
 ## 0.60.20
 
 ### Patch Changes
