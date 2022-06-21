@@ -13,10 +13,12 @@ limitations under the License.
 
 import {
   FaunaBridge,
+  FaunaStore,
   FilesystemBridge,
   FilesystemStore,
   LevelStore,
 } from '@tinacms/datalayer'
+
 import { buildSchema, createDatabase } from '@tinacms/graphql'
 import { compileSchema, resetGeneratedFolder } from '../compile'
 
@@ -106,7 +108,7 @@ export async function startServer(
     collection: process.env.FAUNA_COLLECTION,
     rootPath: rootPath,
   })
-  const store = new LevelStore(rootPath)
+  const store = new FaunaStore(rootPath)
   const shouldBuild = bridge.supportsBuilding()
   const database = await createDatabase({ store, bridge })
 

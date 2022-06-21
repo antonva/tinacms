@@ -21,6 +21,7 @@ export {
   AuditFilesystemStore,
 } from './database/store/filesystem'
 export { LevelStore } from './database/store/level'
+export { FaunaStore } from './database/store/fauna'
 export {
   coerceFilterChainOperands,
   DEFAULT_COLLECTION_SORT_KEY,
