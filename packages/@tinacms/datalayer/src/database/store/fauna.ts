@@ -5,7 +5,7 @@ export class FaunaStore extends LevelStore {
     super(rootPath, useMemory)
   }
   public supportsSeeding() {
-    return false
+    return true
   }
   public supportsIndexing() {
     return false
