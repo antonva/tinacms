@@ -1,5 +1,11 @@
 # tina-graphql
 
+## 0.2.2
+
+### Patch Changes
+
+- Modify fauna store to support seeding
+
 ## 0.2.1
 
 ### Patch Changes
