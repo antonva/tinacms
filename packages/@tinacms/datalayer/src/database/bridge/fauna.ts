@@ -93,7 +93,7 @@ export class FaunaBridge implements Bridge {
   public async get(filepath: string) {
     console.log('get', filepath)
     const page = await (
-      await fetch(`${this.domain}/page?filepath=${filepath}`)
+      await fetch(`${this.domain}/page?filepath=${filepath}`, { method: 'GET' })
     ).json()
     if (page !== undefined) {
       return page
