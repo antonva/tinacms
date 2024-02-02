@@ -35,7 +35,6 @@ In order to use the Fauna bridge with the Memory store, edit
 ``
 */
 
-import { GraphQLError } from 'graphql'
 import type { Bridge } from './index'
 
 export interface FaunaReadDirQueryResult {
@@ -61,14 +60,15 @@ export class FaunaBridge implements Bridge {
   }
 
   private async readDir(filepath: string): Promise<string[]> {
-    let documents = await (
-      await fetch(`${this.domain}/page-dir`, {
-        method: 'POST',
-        body: { filepath: filepath }.toString(),
-      })
-    ).json()
-    if (documents.data !== undefined) {
-      return documents.data
+    const documents = await fetch(`${this.domain}/page-dir`, {
+      method: 'POST',
+      body: JSON.stringify({ filepath: filepath }),
+    })
+    if (documents.ok) {
+      const result = await documents.json()
+      if (result.data !== undefined) {
+        return result.data
+      }
     }
     return []
   }
@@ -80,7 +80,7 @@ export class FaunaBridge implements Bridge {
   public async delete(filepath: string) {
     await fetch(`${this.domain}/page`, {
       method: 'DELETE',
-      body: { filepath: filepath }.toString(),
+      body: JSON.stringify({ filepath: filepath }),
     })
   }
 
@@ -92,27 +92,27 @@ export class FaunaBridge implements Bridge {
 
   public async get(filepath: string) {
     console.log('get', filepath)
-    const page = await (
-      await fetch(`${this.domain}/page?filepath=${filepath}`, { method: 'GET' })
-    ).json()
-    if (page !== undefined) {
-      return page
+    const page = await fetch(`${this.domain}/page?filepath=${filepath}`, {
+      method: 'GET',
+    })
+    if (page !== undefined && page.ok) {
+      return page.json()
     }
     return ''
   }
+
   public async putConfig(filepath: string, data: string) {
     await this.put(filepath, data)
   }
 
   public async put(filepath: string, data: string) {
-    await (
-      await fetch(`${this.domain}/page`, {
-        method: 'POST',
-        body: {
-          filepath,
-          data,
-        }.toString(),
-      })
-    ).json()
+    const response = await fetch(`${this.domain}/page`, {
+      method: 'POST',
+      body: JSON.stringify({
+        filepath,
+        data,
+      }),
+    })
+    return response.ok ? response.json() : ''
   }
 }
