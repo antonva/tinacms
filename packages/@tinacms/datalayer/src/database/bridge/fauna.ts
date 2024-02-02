@@ -105,14 +105,12 @@ export class FaunaBridge implements Bridge {
   }
 
   public async put(filepath: string, data: string) {
-    const path = filepath.split('/').slice(0, -1).join('/')
     await (
       await fetch(`${this.domain}/page`, {
         method: 'POST',
         body: {
-          filename: filepath,
-          path: path,
-          data: data,
+          filepath,
+          data,
         }.toString(),
       })
     ).json()
