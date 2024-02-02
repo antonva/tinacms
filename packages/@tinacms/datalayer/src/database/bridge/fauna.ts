@@ -1,6 +1,7 @@
 /**
 FaunaDB bridge integration.
 
+
 Allows for a remote backend document store via FaunaDB <https://fauna.com>.
 Documents will be stored in the form of:
 data: {
@@ -34,11 +35,8 @@ In order to use the Fauna bridge with the Memory store, edit
 ``
 */
 
-import faunadb, { Client as FaunadbClient } from 'faunadb'
 import { GraphQLError } from 'graphql'
 import type { Bridge } from './index'
-
-const fq = faunadb.query
 
 export interface FaunaReadDirQueryResult {
   data: string[]
@@ -50,49 +48,25 @@ export interface FaunaInit {
   collection: string
   rootPath: string
 }
+
 export class FaunaBridge implements Bridge {
   rootPath: string
   collection: string
-  faunaClient: FaunadbClient
+  domain: string
 
-  constructor({ accessToken, domain, collection, rootPath }: FaunaInit) {
+  constructor({ domain, collection, rootPath }: FaunaInit) {
     this.rootPath = rootPath
     this.collection = collection
-    this.faunaClient = new faunadb.Client({
-      secret: accessToken,
-      domain: domain,
-      port: 443,
-      scheme: 'https',
-    })
+    this.domain = domain
   }
 
   private async readDir(filepath: string): Promise<string[]> {
-    let documents = (await this.faunaClient.query(
-      fq.Map(
-        fq.Paginate(
-          fq.Filter(
-            fq.Documents(fq.Collection(this.collection)),
-            fq.Lambda(
-              'doc',
-              fq.GT(
-                fq.Count(
-                  fq.FindStrRegex(
-                    fq.Select(['data', 'filename'], fq.Get(fq.Var('doc'))),
-                    `^${filepath}`
-                  )
-                ),
-                0
-              )
-            )
-          ),
-          { size: 12000 }
-        ),
-        fq.Lambda(
-          'docref',
-          fq.Select(['data', 'filename'], fq.Get(fq.Var('docref')))
-        )
-      )
-    )) as FaunaReadDirQueryResult
+    let documents = await (
+      await fetch(`${this.domain}/page-dir`, {
+        method: 'POST',
+        body: { filepath: filepath }.toString(),
+      })
+    ).json()
     if (documents.data !== undefined) {
       return documents.data
     }
@@ -104,38 +78,10 @@ export class FaunaBridge implements Bridge {
   }
 
   public async delete(filepath: string) {
-    console.log('delete', filepath)
-    try {
-      let page: string = await this.faunaClient.query(
-        fq.Delete(
-          fq.Select(
-            ['ref'],
-            fq.Get(fq.Match(fq.Index('pageByFileName'), filepath))
-          )
-        )
-      )
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new GraphQLError(
-          `Unauthorized request to Fauna Database: please ensure your access token is valid.`,
-          null,
-          null,
-          null,
-          null,
-          e,
-          { status: e.message }
-        )
-      }
-      throw new GraphQLError(
-        `Unknown error request to Fauna Database: please ensure your access token is valid.`,
-        null,
-        null,
-        null,
-        null,
-        null,
-        { status: '' }
-      )
-    }
+    await fetch(`${this.domain}/page`, {
+      method: 'DELETE',
+      body: { filepath: filepath }.toString(),
+    })
   }
 
   public async glob(pattern: string) {
@@ -146,39 +92,13 @@ export class FaunaBridge implements Bridge {
 
   public async get(filepath: string) {
     console.log('get', filepath)
-    try {
-      let page: string = await this.faunaClient.query(
-        fq.Select(
-          ['data', 'page'],
-          fq.Get(fq.Match(fq.Index('pageByFileName'), filepath))
-        )
-      )
-      if (page !== undefined) {
-        return page
-      }
-      return ''
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new GraphQLError(
-          `Unauthorized request to Fauna Database: please ensure your access token is valid.`,
-          null,
-          null,
-          null,
-          null,
-          e,
-          { status: e.message }
-        )
-      }
-      throw new GraphQLError(
-        `Unknown error request to Fauna Database: please ensure your access token is valid.`,
-        null,
-        null,
-        null,
-        null,
-        null,
-        { status: '' }
-      )
+    const page = await (
+      await fetch(`${this.domain}/page?filepath=${filepath}`)
+    ).json()
+    if (page !== undefined) {
+      return page
     }
+    return ''
   }
   public async putConfig(filepath: string, data: string) {
     await this.put(filepath, data)
@@ -186,29 +106,15 @@ export class FaunaBridge implements Bridge {
 
   public async put(filepath: string, data: string) {
     const path = filepath.split('/').slice(0, -1).join('/')
-    await this.faunaClient.query(
-      fq.Let(
-        {
-          match: fq.Match(fq.Index('pageByFileName'), filepath),
-        },
-        fq.If(
-          fq.IsEmpty(fq.Var('match')),
-          fq.Create(this.collection, {
-            data: {
-              path: path,
-              filename: filepath,
-              page: data,
-            },
-          }),
-          fq.Update(fq.Select('ref', fq.Get(fq.Var('match'))), {
-            data: {
-              path: path,
-              filename: filepath,
-              page: data,
-            },
-          })
-        )
-      )
-    )
+    await (
+      await fetch(`${this.domain}/page`, {
+        method: 'POST',
+        body: {
+          filename: filepath,
+          path: path,
+          data: data,
+        }.toString(),
+      })
+    ).json()
   }
 }
