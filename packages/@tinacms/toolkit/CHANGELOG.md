@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.56.35
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+- Updated dependencies
+  - @tinacms/sharedctx@0.2.3
+
 ## 0.56.34
 
 ### Patch Changes

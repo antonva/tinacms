@@ -1,5 +1,14 @@
 # @tinacms/starter
 
+## 0.1.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @tinacms/auth@0.51.4
+  - next-tinacms-cloudinary@3.5.29
+  - tinacms@0.68.14
+
 ## 0.1.10
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # tina-graphql
 
+## 0.2.5
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+
 ## 0.2.4
 
 ### Patch Changes

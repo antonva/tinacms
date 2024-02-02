@@ -1,5 +1,13 @@
 # create-tina-app
 
+## 0.1.10
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+- Updated dependencies
+  - @tinacms/metrics@0.1.3
+
 ## 0.1.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @tinacms/auth
 
+## 0.51.4
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+
 ## 0.51.3
 
 ### Patch Changes

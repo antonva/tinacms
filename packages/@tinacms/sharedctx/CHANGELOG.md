@@ -1,5 +1,11 @@
 # @tinacms/sharedctx
 
+## 0.2.3
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+
 ## 0.2.2
 
 ### Patch Changes

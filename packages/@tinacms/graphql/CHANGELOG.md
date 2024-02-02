@@ -1,5 +1,13 @@
 # tina-graphql
 
+## 0.60.9
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+- Updated dependencies
+  - @tinacms/datalayer@0.2.5
+
 ## 0.60.8
 
 ### Patch Changes

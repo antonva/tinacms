@@ -1,5 +1,11 @@
 # @tinacms/metrics
 
+## 0.1.3
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+
 ## 0.1.2
 
 ### Patch Changes

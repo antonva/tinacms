@@ -1,5 +1,11 @@
 # @tinacms/schema-tools
 
+## 0.0.7
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+
 ## 0.0.6
 
 ### Patch Changes

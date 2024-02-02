@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.53.26
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+- Updated dependencies
+  - @tinacms/toolkit@0.56.35
+
 ## 0.53.25
 
 ### Patch Changes

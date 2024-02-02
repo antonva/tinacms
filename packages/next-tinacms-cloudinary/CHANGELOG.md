@@ -1,5 +1,11 @@
 # next-tinacms-cloudinary
 
+## 3.5.29
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+
 ## 3.5.28
 
 ### Patch Changes

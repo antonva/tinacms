@@ -1,5 +1,15 @@
 # tinacms
 
+## 0.68.14
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+- Updated dependencies
+  - @tinacms/schema-tools@0.0.7
+  - @tinacms/sharedctx@0.2.3
+  - @tinacms/toolkit@0.56.35
+
 ## 0.68.13
 
 ### Patch Changes

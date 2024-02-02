@@ -1,5 +1,16 @@
 # tinacms-cli
 
+## 0.60.25
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+- Updated dependencies
+  - @tinacms/datalayer@0.2.5
+  - @tinacms/graphql@0.60.9
+  - @tinacms/metrics@0.1.3
+  - @tinacms/schema-tools@0.0.7
+
 ## 0.60.24
 
 ### Patch Changes

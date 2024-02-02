@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.43.3
+
+### Patch Changes
+
+- More fixes related to tinacems cloud function
+
 ## 0.43.2
 
 ### Patch Changes
