@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.56.34
+
+### Patch Changes
+
+- bumping
+- Updated dependencies
+  - @tinacms/sharedctx@0.2.2
+
 ## 0.56.33
 
 ### Patch Changes

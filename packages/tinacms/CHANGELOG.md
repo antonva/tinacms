@@ -1,5 +1,15 @@
 # tinacms
 
+## 0.68.13
+
+### Patch Changes
+
+- bumping
+- Updated dependencies
+  - @tinacms/schema-tools@0.0.6
+  - @tinacms/sharedctx@0.2.2
+  - @tinacms/toolkit@0.56.34
+
 ## 0.68.12
 
 ### Patch Changes

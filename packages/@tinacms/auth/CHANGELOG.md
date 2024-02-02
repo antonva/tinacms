@@ -1,5 +1,11 @@
 # @tinacms/auth
 
+## 0.51.3
+
+### Patch Changes
+
+- bumping
+
 ## 0.51.2
 
 ### Patch Changes

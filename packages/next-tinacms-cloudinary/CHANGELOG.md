@@ -1,5 +1,11 @@
 # next-tinacms-cloudinary
 
+## 3.5.28
+
+### Patch Changes
+
+- bumping
+
 ## 3.5.27
 
 ### Patch Changes

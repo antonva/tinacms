@@ -1,5 +1,11 @@
 # @tinacms/sharedctx
 
+## 0.2.2
+
+### Patch Changes
+
+- bumping
+
 ## 0.2.1
 
 ### Patch Changes

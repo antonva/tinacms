@@ -1,5 +1,11 @@
 # @tinacms/metrics
 
+## 0.1.2
+
+### Patch Changes
+
+- bumping
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.43.2
+
+### Patch Changes
+
+- bumping
+
 ## 0.43.1
 
 ### Patch Changes
