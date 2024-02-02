@@ -1,5 +1,11 @@
 # @tinacms/sharedctx
 
+## 0.2.1
+
+### Patch Changes
+
+- make use of fauna cloud function
+
 ## 0.2.0
 
 ### Minor Changes

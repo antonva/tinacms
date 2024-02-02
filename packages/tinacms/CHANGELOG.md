@@ -1,5 +1,15 @@
 # tinacms
 
+## 0.68.12
+
+### Patch Changes
+
+- make use of fauna cloud function
+- Updated dependencies
+  - @tinacms/schema-tools@0.0.5
+  - @tinacms/sharedctx@0.2.1
+  - @tinacms/toolkit@0.56.33
+
 ## 0.68.11
 
 ### Patch Changes

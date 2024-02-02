@@ -1,5 +1,16 @@
 # tinacms-cli
 
+## 0.60.23
+
+### Patch Changes
+
+- make use of fauna cloud function
+- Updated dependencies
+  - @tinacms/datalayer@0.2.3
+  - @tinacms/graphql@0.60.7
+  - @tinacms/metrics@0.1.1
+  - @tinacms/schema-tools@0.0.5
+
 ## 0.60.22
 
 ### Patch Changes

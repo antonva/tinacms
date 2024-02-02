@@ -1,5 +1,11 @@
 # @tinacms/auth
 
+## 0.51.2
+
+### Patch Changes
+
+- make use of fauna cloud function
+
 ## 0.51.1
 
 ### Patch Changes

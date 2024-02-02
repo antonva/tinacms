@@ -1,5 +1,11 @@
 # next-tinacms-cloudinary
 
+## 3.5.27
+
+### Patch Changes
+
+- make use of fauna cloud function
+
 ## 3.5.26
 
 ## 3.5.25

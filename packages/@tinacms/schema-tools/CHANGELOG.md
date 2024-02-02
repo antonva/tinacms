@@ -1,5 +1,11 @@
 # @tinacms/schema-tools
 
+## 0.0.5
+
+### Patch Changes
+
+- make use of fauna cloud function
+
 ## 0.0.4
 
 ### Patch Changes

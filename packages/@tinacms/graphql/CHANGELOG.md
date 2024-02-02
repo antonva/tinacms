@@ -1,5 +1,13 @@
 # tina-graphql
 
+## 0.60.7
+
+### Patch Changes
+
+- make use of fauna cloud function
+- Updated dependencies
+  - @tinacms/datalayer@0.2.3
+
 ## 0.60.6
 
 ### Patch Changes

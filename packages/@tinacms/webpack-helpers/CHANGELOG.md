@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.43.1
+
+### Patch Changes
+
+- make use of fauna cloud function
+
 ## 0.43.0
 
 ### Minor Changes

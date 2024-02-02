@@ -1,5 +1,11 @@
 # @tinacms/metrics
 
+## 0.1.1
+
+### Patch Changes
+
+- make use of fauna cloud function
+
 ## 0.1.0
 
 ### Minor Changes

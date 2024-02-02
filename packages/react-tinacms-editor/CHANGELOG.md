@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.53.24
+
+### Patch Changes
+
+- make use of fauna cloud function
+- Updated dependencies
+  - @tinacms/toolkit@0.56.33
+
 ## 0.53.23
 
 ### Patch Changes

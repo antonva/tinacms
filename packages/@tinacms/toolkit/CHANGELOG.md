@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.56.33
+
+### Patch Changes
+
+- make use of fauna cloud function
+- Updated dependencies
+  - @tinacms/sharedctx@0.2.1
+
 ## 0.56.32
 
 ### Patch Changes

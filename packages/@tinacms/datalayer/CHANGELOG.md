@@ -1,5 +1,11 @@
 # tina-graphql
 
+## 0.2.3
+
+### Patch Changes
+
+- make use of fauna cloud function
+
 ## 0.2.2
 
 ### Patch Changes

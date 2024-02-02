@@ -1,5 +1,13 @@
 # create-tina-app
 
+## 0.1.8
+
+### Patch Changes
+
+- make use of fauna cloud function
+- Updated dependencies
+  - @tinacms/metrics@0.1.1
+
 ## 0.1.7
 
 ### Patch Changes
